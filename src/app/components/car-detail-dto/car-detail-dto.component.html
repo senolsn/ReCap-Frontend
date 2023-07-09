@@ -1,0 +1,18 @@
+<table class="table text-center mt-2">
+    <thead>
+      <tr>
+        <th scope="col">Araç No</th>
+        <th scope="col">Açıklama</th>
+        <th scope="col">Marka</th>
+        <th scope="col">Renk</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carDetail of carDetailDtos">
+        <td>{{carDetail.carId}}</td>
+        <td>{{carDetail.description}}</td>
+        <td>{{carDetail.brandName}}</td>
+        <td>{{carDetail.colorName}}</td>
+      </tr>
+    </tbody>
+  </table>
