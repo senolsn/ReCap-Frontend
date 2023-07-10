@@ -1,15 +1,7 @@
-<table class="table text-center mt-2 mb-3">
-    <thead>
-      <tr>
-        <th scope="col">Renk No</th>
-        <th scope="col">Renk Adı</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let color of colors">
-        <td>{{color.colorId}}</td>
-        <td>{{color.colorName}}</td>
-
-      </tr>
-    </tbody>
-  </table>
+<ul class="list-group mt-3">
+    <li
+    routerLink="/cars/color/{{color.colorId}}"
+     (click)="setCurrentColor(color)" 
+     *ngFor="let color of colors" [class]="getCurrentColorClass(color)" aria-current="true">{{color.colorName}}</li>
+  </ul>
+  <h5 *ngIf="currentColor">{{currentColor.colorName}}</h5>

@@ -1,10 +1,13 @@
-<div class="container">
 <app-navi></app-navi>
-<app-brand></app-brand>
-<app-color></app-color>
-<app-rental-detail-dto></app-rental-detail-dto>
-<app-customer></app-customer>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mt-3">
+        <app-brand></app-brand>
+        <app-color></app-color>
 
-<app-car-detail-dto></app-car-detail-dto>
-<router-outlet></router-outlet>
+    </div>
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

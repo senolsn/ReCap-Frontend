@@ -7,10 +7,16 @@ import { NaviComponent } from './components/navi/navi.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { CarDetailDtoComponent } from './components/car-detail-dto/car-detail-dto.component';
 import { HttpClientModule  } from '@angular/common/http';
-import { RentalDetailDtoComponent } from './components/rental-detail-dto/rental-detail-dto.component';
+import { CarImageComponent } from './components/car-image/car-image.component';
+import { CarComponent } from './components/car/car.component';
+import { RentalComponent } from './components/rental/rental.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faPalette, faLiraSign, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
+library.add(faPalette, faLiraSign, faCalendarAlt);
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,13 +24,16 @@ import { RentalDetailDtoComponent } from './components/rental-detail-dto/rental-
     BrandComponent,
     ColorComponent,
     CustomerComponent,
-    CarDetailDtoComponent,
-    RentalDetailDtoComponent
+    CarImageComponent,
+    CarComponent,
+    RentalComponent,
+    CarDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
