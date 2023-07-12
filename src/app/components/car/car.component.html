@@ -1,11 +1,12 @@
 <div class="row">
   <div *ngFor="let car of cars" class="col-md-4">
     <div class="card shadow mt-3">
-      <img src="{}" class="card-img-top" alt="{{car.imagePath}}">
+      <img [src]="getCarImageUrl(car.imagePath)" class="card-img-top" alt="{{car.description}}" width="304" height="203" style="border-bottom: 1px solid #ccc;">
+
       <div class="card-body">
-        <h5 class="card-title" style="font-size: 1.2rem;">{{car.description}}</h5>
-        <p class="card-text" style="font-size: 0.9rem;">{{car.brandName}}</p>
-        <p class="card-text">{{car.colorName}}</p>
+        <h5 class="card-title">{{car.brandName}} {{car.description}}</h5>
+        <p class="card-text">Günlük Fiyat: {{car.dailyPrice}}</p>
+        <p class="card-text">Araç Rengi: {{car.colorName}}</p>
         <a [routerLink]="['/cars', car.carId]" class="btn btn-primary d-block mx-auto">Detaylar</a>
       </div>
     </div>

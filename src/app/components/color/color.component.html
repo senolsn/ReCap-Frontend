@@ -1,7 +1,7 @@
-<ul class="list-group mt-3">
+<h2 class="section-title mt-2">Renkler</h2>
+<ul class="list-group">
     <li
     routerLink="/cars/color/{{color.colorId}}"
      (click)="setCurrentColor(color)" 
      *ngFor="let color of colors" [class]="getCurrentColorClass(color)" aria-current="true">{{color.colorName}}</li>
   </ul>
-  <h5 *ngIf="currentColor">{{currentColor.colorName}}</h5>

@@ -1,0 +1,29 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .card-img-top {
+    border-bottom: none;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+  
+  .card-text:last-child {
+    margin-bottom: 10px;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+  

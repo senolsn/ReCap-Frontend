@@ -1,6 +1,5 @@
+<h5 class="section-title">Markalar</h5>
 <ul class="list-group">
-    <li 
-    routerLink="/cars/brand/{{brand.brandId}}"
-    (click)="setCurrentBrand(brand)" *ngFor="let brand of brands" [class]="getCurrentBrandClass(brand)" aria-current="true">{{brand.brandName}}</li>
-  </ul>
-  <h5 *ngIf="currentBrand">{{currentBrand.brandName}}</h5>
+  <li routerLink="/cars/brand/{{brand.brandId}}"
+      (click)="setCurrentBrand(brand)" *ngFor="let brand of brands" [class]="getCurrentBrandClass(brand)" aria-current="true">{{brand.brandName}}</li>
+</ul>
