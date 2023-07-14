@@ -17,6 +17,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPalette, faLiraSign, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { FormsModule } from '@angular/forms';
+import { SelectComponent } from './components/select/select.component';
 
 library.add(faPalette, faLiraSign, faCalendarAlt);
 @NgModule({
@@ -30,7 +31,8 @@ library.add(faPalette, faLiraSign, faCalendarAlt);
     CarComponent,
     RentalComponent,
     CarDetailComponent,
-    FilterPipePipe
+    FilterPipePipe,
+    SelectComponent
   ],
   imports: [
     BrowserModule,

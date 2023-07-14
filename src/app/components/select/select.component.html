@@ -1,0 +1,4 @@
+<select class="form-select mt-4" aria-label="Default select example">
+  <option selected>{{label}}</option>
+  <option *ngFor="let option of options" [value]="option.id">{{option.brandName || option.colorName}}</option>    
+</select>
