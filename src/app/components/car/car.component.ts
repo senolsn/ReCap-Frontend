@@ -9,6 +9,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarComponent implements OnInit {
   cars: Car[] = [];
+  fileText="";
   baseUrl: string = "https://localhost:44317/Uploads/Images/";
 
   constructor(private carService: CarService) { }

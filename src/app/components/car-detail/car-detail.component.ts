@@ -10,6 +10,8 @@ import { CarService } from 'src/app/services/car.service';
 export class CarDetailComponent implements OnInit {
   carId:number;
   car:any;
+  baseUrl: string = "https://localhost:44317/Uploads/Images/";
+
   constructor(private activatedRoute:ActivatedRoute,
     private carService:CarService) {}
   ngOnInit(): void {
@@ -23,6 +25,13 @@ export class CarDetailComponent implements OnInit {
     this.carService.getCarDetail(this.carId).subscribe(response => {
       this.car = response.data;
     });
+  }
+
+  getCarImageUrl(imagePath: string): string {
+    if (imagePath !== null) {
+      return this.baseUrl + imagePath;
+    }
+    return this.baseUrl + "default.jpg";
   }
 
   

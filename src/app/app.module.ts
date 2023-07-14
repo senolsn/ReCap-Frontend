@@ -15,6 +15,8 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPalette, faLiraSign, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import { FormsModule } from '@angular/forms';
 
 library.add(faPalette, faLiraSign, faCalendarAlt);
 @NgModule({
@@ -27,13 +29,15 @@ library.add(faPalette, faLiraSign, faCalendarAlt);
     CarImageComponent,
     CarComponent,
     RentalComponent,
-    CarDetailComponent
+    CarDetailComponent,
+    FilterPipePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

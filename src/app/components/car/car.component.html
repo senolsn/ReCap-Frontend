@@ -1,13 +1,33 @@
+<div class="mb-3 mt-3">
+  <input
+    [(ngModel)]="fileText"
+    type="text"
+    class="form-control"
+    id="exampleFormControlInput1"
+    placeholder="Renk veya Marka Değeri Giriniz !"
+  />
+</div>
 <div class="row">
-  <div *ngFor="let car of cars" class="col-md-4">
+  <div *ngFor="let car of cars | filterPipe: fileText " class="col-md-4">
     <div class="card shadow mt-3">
-      <img [src]="getCarImageUrl(car.imagePath)" class="card-img-top" alt="{{car.description}}" width="304" height="203" style="border-bottom: 1px solid #ccc;">
+      <img
+        [src]="getCarImageUrl(car.imagePath)"
+        class="card-img-top"
+        alt="{{ car.description }}"
+        width="304"
+        height="203"
+        style="border-bottom: 1px solid #ccc"
+      />
 
       <div class="card-body">
-        <h5 class="card-title">{{car.brandName}} {{car.description}}</h5>
-        <p class="card-text">Günlük Fiyat: {{car.dailyPrice}}</p>
-        <p class="card-text">Araç Rengi: {{car.colorName}}</p>
-        <a [routerLink]="['/cars', car.carId]" class="btn btn-primary d-block mx-auto">Detaylar</a>
+        <h5 class="card-title">{{ car.brandName }} {{ car.description }}</h5>
+        <p class="card-text">Günlük Fiyat: {{ car.dailyPrice }}</p>
+        <p class="card-text">Araç Rengi: {{ car.colorName }}</p>
+        <a
+          [routerLink]="['/cars', car.carId]"
+          class="btn btn-primary d-block mx-auto"
+          >Detaylar</a
+        >
       </div>
     </div>
   </div>
