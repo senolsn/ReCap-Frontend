@@ -1,27 +1,26 @@
 <div class="container mt-5">
-    <div class="row">
-      <div class="col-lg-6">
-        <img src="{{car?.imagePath}}" class="img-fluid" alt="{{car.imagePath}}" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <div class="row">
+    <div class="col-lg-6">
+      <img [src]="getCarImageUrl(car?.imagePath)" class="img-fluid" alt="{{car.imagePath}}" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    </div>
+    <div class="col-lg-6" style="padding: 20px;">
+      <h1 class="mb-4" style="font-weight: bold; color: #333;">{{car?.description}}</h1>
+      <h3 class="mb-4 text-muted" style="font-weight: lighter;">{{car?.brand}}</h3>
+      <div class="d-flex align-items-center mb-4">
+        <i class="fas fa-palette text-primary me-3" style="font-size: 24px;"></i>
+        <p class="m-0" style="font-size: 18px;"><strong>Renk:</strong> {{car?.colorName}}</p>
       </div>
-      <div class="col-lg-6" style="padding: 20px;">
-        <h1 class="mb-4" style="font-weight: bold; color: #333;">{{car?.description}}</h1>
-        <h3 class="mb-4 text-muted" style="font-weight: lighter;">{{car?.brand}}</h3>
-        <div class="d-flex align-items-center mb-4">
-          <i class="fas fa-palette text-primary me-3" style="font-size: 24px;"></i>
-          <p class="m-0" style="font-size: 18px;"><strong>Renk:</strong> {{car?.colorName}}</p>
-        </div>
-        <div class="d-flex align-items-center mb-4">
-          <i class="fas fa-lira-sign text-success me-3" style="font-size: 24px;"></i>
-          <p class="m-0" style="font-size: 18px;"><strong>Günlük Fiyat:</strong> {{car?.dailyPrice | currency}}</p>
-        </div>
-        <div class="d-flex align-items-center mb-4">
-          <i class="fas fa-calendar-alt text-warning me-3" style="font-size: 24px;"></i>
-          <p class="m-0" style="font-size: 18px;"><strong>Model Yılı:</strong> {{car?.modelYear}}</p>
-        </div>
-        <a href="#" class="btn btn-primary btn-md rounded text-center" style="width: 200px; height: 70px; font-size: 20px; font-weight: bold; line-height: 60px;">
-            İletişime Geç
-          </a>
+      <div class="d-flex align-items-center mb-4">
+        <i class="fas fa-lira-sign text-success me-3" style="font-size: 24px;"></i>
+        <p class="m-0" style="font-size: 18px;"><strong>Günlük Fiyat:</strong> {{car?.dailyPrice}}</p>
       </div>
+      <div class="d-flex align-items-center mb-4">
+        <i class="fas fa-calendar-alt text-warning me-3" style="font-size: 24px;"></i>
+        <p class="m-0" style="font-size: 18px;"><strong>Model Yılı:</strong> {{car?.modelYear}}</p>
+      </div>
+      <a href="#" class="btn btn-primary btn-md rounded text-center" style="width: 200px; height: 70px; font-size: 20px; font-weight: bold; line-height: 60px;">
+          İletişime Geç
+        </a>
     </div>
   </div>
-  
+</div>

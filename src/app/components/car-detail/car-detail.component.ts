@@ -28,10 +28,10 @@ export class CarDetailComponent implements OnInit {
   }
 
   getCarImageUrl(imagePath: string): string {
-    if (imagePath !== null) {
+    if (imagePath && imagePath !== null) {
       return this.baseUrl + imagePath;
     }
-    return this.baseUrl + "default.jpg";
+    return this.baseUrl + 'default.jpg';
   }
 
   
