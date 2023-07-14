@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 
@@ -12,10 +13,21 @@ export class CarComponent implements OnInit {
   fileText="";
   baseUrl: string = "https://localhost:44317/Uploads/Images/";
 
-  constructor(private carService: CarService) { }
+  constructor(private carService: CarService, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getCars();
+    this.activatedRoute.params.subscribe(params=>{
+      if(params["brandId"])
+      {
+        this.getCarsByBrand(params["brandId"]);
+      }
+      else if(params["colorId"]){
+        this.getCarsByColor(params["colorId"]);
+      }
+      else{
+        this.getCars();
+      }
+    })
   }
 
   getCars(): void {
@@ -24,6 +36,17 @@ export class CarComponent implements OnInit {
     });
   }
 
+  getCarsByBrand(brandId: number) {
+    this.carService.getCarsByBrand(brandId).subscribe(response => {
+      this.cars = response.data;
+    });
+  }
+
+  getCarsByColor(colorId:number){
+    return this.carService.getCarsByColor(colorId).subscribe(response=>{
+      this.cars = response.data;
+    })
+  }
   //Resim URL'sini aldığımız data
   getCarImageUrl(imagePath: string): string {
     if (imagePath !== null) {
