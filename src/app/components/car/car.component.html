@@ -1,14 +1,32 @@
 <div class="mb-3 mt-3">
   <input
-    [(ngModel)]="fileText"
+    [(ngModel)]="filterText"
     type="text"
     class="form-control"
     id="exampleFormControlInput1"
     placeholder="Renk veya Marka Değeri Giriniz !"
   />
+  <div class="row mt-3">
+    <div class="col-md-5">
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="brandFilter">
+        <option value="0" selected>Markalar</option>
+        <option *ngFor="let brand of brands" [value]="brand.brandId">{{ brand.brandName }}</option>
+      </select>
+    </div>
+    <div class="col-md-5">
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="colorFilter">
+        <option value="0" selected>Renkler</option>
+        <option *ngFor="let color of colors" [value]="color.colorId">{{ color.colorName }}</option>
+      </select>
+    </div>
+    <div class="col-md-2" style="position:relative; bottom: 10px;">
+      <button class="btn btn-primary" (click)="getCarsByBrandAndColor(brandFilter,colorFilter)">Filtrele</button>
+    </div>
+  </div>
+
 </div>
 <div class="row">
-  <div *ngFor="let car of cars | filterPipe: fileText " class="col-md-4">
+  <div *ngFor="let car of cars | filterPipe: filterText " class="col-md-4">
     <div class="card shadow mt-3">
       <img
         [src]="getCarImageUrl(car.imagePath)"
