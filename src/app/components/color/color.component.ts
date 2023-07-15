@@ -28,9 +28,9 @@ export class ColorComponent implements OnInit {
 
   getCurrentColorClass(color:Color){
     if(color == this.currentColor){
-      return "list-group-item active"
+      return "list-group-item active text-center"
     }else{
-      return "list-group-item"
+      return "list-group-item text-center"
     }
   }
 
