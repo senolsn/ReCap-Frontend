@@ -7,4 +7,6 @@ export interface Car {
   colorName: string;
   dailyPrice: number;
   imagePath:string;
+  rentDate:Date,
+  returnDate:Date
 }

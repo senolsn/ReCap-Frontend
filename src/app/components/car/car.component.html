@@ -39,7 +39,7 @@
 
       <div class="card-body">
         <h5 class="card-title">{{ car.brandName }} {{ car.description }}</h5>
-        <p class="card-text">Günlük Fiyat: {{ car.dailyPrice }}</p>
+        <p class="card-text">Günlük Fiyat: {{ car.dailyPrice |currency }}</p>
         <p class="card-text">Araç Rengi: {{ car.colorName }}</p>
         <a
           [routerLink]="['/cars', car.carId]"

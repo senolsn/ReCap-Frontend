@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Color } from 'src/app/models/color';
 import { ColorService } from 'src/app/services/color.service';
 
@@ -10,6 +10,7 @@ import { ColorService } from 'src/app/services/color.service';
 export class ColorComponent implements OnInit {
   colors:Color[] = [];
   currentColor:Color;
+
   constructor(private colorService:ColorService) { }
   ngOnInit(): void {
     
@@ -27,12 +28,12 @@ export class ColorComponent implements OnInit {
   }
 
   getCurrentColorClass(color:Color){
+    // eğer currentBrand != null 
     if(color == this.currentColor){
       return "list-group-item active text-center"
     }else{
       return "list-group-item text-center"
     }
   }
-
 
 }

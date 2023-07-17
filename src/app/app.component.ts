@@ -1,6 +1,5 @@
-import { BrandService } from './services/brand.service';
 import { Component, OnInit } from '@angular/core';
-import { ColorService } from './services/color.service';
+
 
 @Component({
   selector: 'app-root',
@@ -11,5 +10,8 @@ export class AppComponent implements OnInit {
   title = 'ReCapProject-Frontend';
   constructor() {}
 
+
   ngOnInit(): void {}
+
+ 
 }

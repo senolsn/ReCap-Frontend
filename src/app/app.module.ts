@@ -17,6 +17,14 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPalette, faLiraSign, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { FormsModule } from '@angular/forms';
+import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { CreditCardComponent } from './components/credit-card/credit-card.component';
+
 
 library.add(faPalette, faLiraSign, faCalendarAlt);
 @NgModule({
@@ -31,13 +39,22 @@ library.add(faPalette, faLiraSign, faCalendarAlt);
     RentalComponent,
     CarDetailComponent,
     FilterPipePipe,
+    VatAddedPipe,
+    CartSummaryComponent,
+    CartDetailComponent,
+    PaymentComponent,
+    CreditCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass:"toast-bottom-right"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { BrandService } from './../../services/brand.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
 
 @Component({
@@ -10,7 +10,9 @@ import { Brand } from 'src/app/models/brand';
 export class BrandComponent implements OnInit {
   brands:Brand[] = [];
   currentBrand:Brand;
+
   constructor(private brandService:BrandService) { }
+
   ngOnInit(): void {
     this.getBrands();
   }
@@ -22,12 +24,11 @@ export class BrandComponent implements OnInit {
   }
 
   setCurrentBrand(brand:Brand){
-    this.currentBrand = brand;    
+    this.currentBrand = brand;
   }
 
   getCurrentBrandClass(brand:Brand){
-
-    if(brand == this.currentBrand){
+      if(brand == this.currentBrand){
       return "list-group-item active text-center"
     }else{
       return "list-group-item text-center"

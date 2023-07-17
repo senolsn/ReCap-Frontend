@@ -1,26 +1,80 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-lg-6">
-      <img [src]="getCarImageUrl(car?.imagePath)" class="img-fluid" alt="{{car?.imagePath}}" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <img
+        [src]="getCarImageUrl(car?.imagePath)"
+        class="img-fluid"
+        alt="{{ car?.imagePath }}"
+        style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)"
+      />
     </div>
-    <div class="col-lg-6" style="padding: 20px;">
-      <h1 class="mb-4" style="font-weight: bold; color: #333;">{{car?.description}}</h1>
-      <h3 class="mb-4 text-muted" style="font-weight: lighter;">{{car?.brand}}</h3>
-      <div class="d-flex align-items-center mb-4">
-        <i class="fas fa-palette text-primary me-3" style="font-size: 24px;"></i>
-        <p class="m-0" style="font-size: 18px;"><strong>Renk:</strong> {{car?.colorName}}</p>
+    <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center" style="padding: 20px">
+      <h2 class="mb-4" style="font-weight: bold; color: #333; text-align: center">
+        {{ car?.brandName }} {{ car?.description }}
+      </h2>
+      <div class="d-flex align-items-center mb-4 justify-content-center">
+        <i class="fas fa-palette text-primary me-3" style="font-size: 24px"></i>
+        <p class="m-0" style="font-size: 18px; text-align: center">
+          <strong>Renk:</strong> {{ car?.colorName }}
+        </p>
       </div>
-      <div class="d-flex align-items-center mb-4">
-        <i class="fas fa-lira-sign text-success me-3" style="font-size: 24px;"></i>
-        <p class="m-0" style="font-size: 18px;"><strong>Günlük Fiyat:</strong> {{car?.dailyPrice}}</p>
+      <div class="d-flex align-items-center mb-4 justify-content-center">
+        <i
+          class="fas fa-lira-sign text-success me-3"
+          style="font-size: 24px"
+        ></i>
+        <p class="m-0" style="font-size: 18px; text-align: center">
+          <strong>Günlük Fiyat:</strong> {{ car?.dailyPrice  | currency}}
+        </p>
       </div>
-      <div class="d-flex align-items-center mb-4">
-        <i class="fas fa-calendar-alt text-warning me-3" style="font-size: 24px;"></i>
-        <p class="m-0" style="font-size: 18px;"><strong>Model Yılı:</strong> {{car?.modelYear}}</p>
+      <div class="d-flex align-items-center mb-4 justify-content-center">
+        <i
+          class="fas fa-calendar-alt text-warning me-3"
+          style="font-size: 24px"
+        ></i>
+        <p class="m-0" style="font-size: 18px; text-align: center">
+          <strong>Model Yılı:</strong> {{ car?.modelYear }}
+        </p>
       </div>
-      <a href="#" class="btn btn-primary btn-lg rounded text-center" >
-          Kirala
-        </a>
+      <div class="input-group mb-3">
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="selectRentDay"
+          (change)="onRentDayChange()"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="selectReturnDay"
+          (change)="onReturnDayChange()"
+          
+        />
+      </div>
+      <div class="mt-2 d-grid gap-2">
+        <button class="btn btn-primary btn-lg rounded text-center" (click)="addToCart(car)">
+          <i class="bi bi-cart4"></i> Sepete Ekle
+        </button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="card mt-3" style="width: 18rem">
+          <div class="card-body text-center">
+            <h5 class="card-subtitle">Kiralanan Gün : {{hiredDay}} </h5>
+            <h6 class="card-subtitle mt-2 mb-2 text-body-secondary">
+              Fiyat : {{totalPrice | currency}} 
+            </h6>
+            <h6 class="card-subtitle mt-2 mb-2 text-body-secondary">
+              KDV Bedeli : {{totalPrice |vatAdded:20 |currency}} 
+            </h6>
+            <h6 class="card-subtitle mt-2 mb-2 text-body-secondary">
+              Toplam Fiyat : {{totalPrice + (totalPrice | vatAdded: 20) | currency}}
+            </h6>
+            <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Diğer Araçlarımız</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
