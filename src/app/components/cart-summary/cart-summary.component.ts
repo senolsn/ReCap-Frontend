@@ -11,6 +11,7 @@ export class CartSummaryComponent implements OnInit {
   cartItems: CartItem[];
 
   constructor(private cartService: CartService) {}
+
   ngOnInit(): void {
     this.getCart();
   }
@@ -18,4 +19,10 @@ export class CartSummaryComponent implements OnInit {
   getCart() {
     this.cartItems = this.cartService.list();
   }
+
+  removeFromCart(index:number){
+    return this.cartService.removeFromCart(index);
+  }
+
+
 }

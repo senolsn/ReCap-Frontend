@@ -1,20 +1,37 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/cars">Wehon</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom" style="padding-top: 0.5rem; padding-bottom: 0.5rem; height: 70px;">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand ml-5" style="margin-top: 5px;" href="./index.html">
+      <h5>WEHONY</h5>
+    </a>
+
+    <!-- Collapse -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <!-- Navigation -->
+      <ul class="navbar-nav ms-auto d-flex">
+        <li class="nav-item dropdown me-4">
+          <a class="nav-link text-center d-block border-0" id="navbarLandings" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+            <span class="text-decoration-underline">Cars</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <li class="nav-item dropdown me-4">
+          <a class="nav-link text-center d-block border-0" id="navbarLandings" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+            <span class="text-decoration-underline">Colors</span>
+          </a>
         </li>
-          <app-cart-summary></app-cart-summary>
+        <li class="nav-item dropdown me-4">
+          <a class="nav-link text-center d-block border-0" id="navbarLandings" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+            <span class="text-decoration-underline">Brands</span>
+          </a>
+        </li>
       </ul>
       
+
+      <!-- Button -->
+      <a class="navbar-btn btn btn-sm btn-primary lift ms-auto" href="" target="_blank">
+        Sign In
+      </a>
+      <app-cart-summary class="m-4 border rounded" style="list-style-type: none; padding: 5px;"></app-cart-summary>
     </div>
   </div>
 </nav>

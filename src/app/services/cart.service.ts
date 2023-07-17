@@ -8,7 +8,7 @@ import { CartItem } from '../models/cartItem';
 })
 export class CartService {
   constructor(private toastrService: ToastrService) {}
-
+  cartItems: CartItem[] = [];
   addToCart(cartItem: CartItem) {
     let item = CartItems.find((c) => c.car === cartItem.car);
     if (item) {
@@ -18,7 +18,15 @@ export class CartService {
     }
   }
 
+  removeFromCart(index: number) {
+    if (index >= 0 && index < CartItems.length) {
+      CartItems.splice(index, 1);
+    }
+  }
+
   list(): CartItem[] {
     return CartItems;
   }
+
+  
 }
