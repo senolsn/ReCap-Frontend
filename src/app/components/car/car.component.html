@@ -9,18 +9,18 @@
   <div class="row mt-3">
     <div class="col-md-5">
       <select class="form-select" aria-label="Default select example" [(ngModel)]="brandFilter">
-        <option value="0" selected>Markalar</option>
+        <option disabled value="0" selected>Markalar</option>
         <option *ngFor="let brand of brands" [value]="brand.brandId">{{ brand.brandName }}</option>
       </select>
     </div>
     <div class="col-md-5">
       <select class="form-select" aria-label="Default select example" [(ngModel)]="colorFilter">
-        <option value="0" selected>Renkler</option>
+        <option disabled value="0" selected>Renkler</option>
         <option *ngFor="let color of colors" [value]="color.colorId">{{ color.colorName }}</option>
       </select>
     </div>
     <div class="col-md-2" style="position:relative; bottom: 10px;">
-      <button class="btn btn-primary" (click)="getCarsByBrandAndColor(brandFilter,colorFilter)">Filtrele</button>
+      <button class="btn btn-primary" (click)="getCarsByBrandAndColor(brandFilter,colorFilter)"> <i class="bi bi-funnel-fill"></i> Filtrele</button>
     </div>
   </div>
 
@@ -39,7 +39,7 @@
 
       <div class="card-body">
         <h5 class="card-title">{{ car.brandName }} {{ car.description }}</h5>
-        <p class="card-text">Günlük Fiyat: {{ car.dailyPrice |currency }}</p>
+        <p class="card-text">Günlük Fiyat: {{ car.dailyPrice | currency:"TRY"}} </p>
         <p class="card-text">Araç Rengi: {{ car.colorName }}</p>
         <a
           [routerLink]="['/cars', car.carId]"

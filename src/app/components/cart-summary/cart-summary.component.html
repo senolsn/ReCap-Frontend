@@ -1,17 +1,22 @@
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bi bi-cart3"></i> Sepetiniz 
+
+        <i class="bi bi-cart3"></i> Sepetiniz
+        <span *ngIf="cartItems.length > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{cartItems.length}}
+          </span>
+       
     </a>
     <ul class="dropdown-menu cart-dropdown">
         <li *ngFor="let cartItem of cartItems; let i = index">
             <a class="dropdown-item basket-bg-remove">
-                {{cartItem.car.brandName}} {{cartItem.car.description}}
+                 {{cartItem.car.brandName}} {{cartItem.car.description}}
                 <button class="btn btn-danger btn-sm float-end remove-button" (click)="removeFromCart(i)">
                     <i class="bi bi-x"></i>
                   </button>
             </a>
         </li>
-        <hr class="dropdown-divider">
+        <hr *ngIf="cartItems.length > 0" class="dropdown-divider">
         <li>
             <a class="dropdown-item  text-center" routerLink="/cart-detail">
                 <i class="bi bi-cart4"></i> Sepete Git

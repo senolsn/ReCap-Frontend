@@ -1,0 +1,60 @@
+<div class="content">
+  <div class="col-md-12 mt-5">
+      <div class="card">
+          <div class="card-header text-center"><h5 class="title" style="font-weight: 400;">Araba ekle</h5></div>
+          <div class="card-body">
+              <form [formGroup] = "carAddForm" >
+                  <div class="mb-3">
+                      <label for="brandId">Brand</label>
+                  <select class="form-select mb-3" id="brandId" formControlName="brandId">
+                      <option disabled value="">--Marka Seçiniz--</option>
+                      <option *ngFor="let brand of brands" [ngValue]="brand.brandId">
+                          {{brand.brandName}}
+                      </option>
+                  </select>
+                  </div>
+                 
+                  <div class="mb-3">
+                      <label for="colorId">Color</label>
+                  <select class="form-select mb-3" id="colorId" formControlName="colorId">
+                      <option disabled value="">--Renk Seçiniz--</option>
+                      <option *ngFor="let color of colors" [ngValue]="color.colorId">
+                          {{color.colorName}}
+                      </option>
+                  </select>
+                  </div>
+                 <div class="mb-3">
+                  <label for="modelYear">Modeli</label>
+                  <div class="form-group">
+                      <input type="text" 
+                      id="modelYear" 
+                      formControlName="modelYear" class="form-control" 
+                      placeholder="Model"/>
+                  </div>
+                 </div>
+                  <div  class="mb-3">
+                      <label for="dailyPrice">Gunluk Fiyati</label>
+                      <div class="form-group">
+                          <input type="number" 
+                          id="dailyPrice" 
+                          formControlName="dailyPrice" class="form-control" 
+                          placeholder="Gunluk Fiyatı"/>
+                      </div>
+                  </div>
+                  <div  class="mb-3">
+                      <label for="description">Aciklama</label>
+                      <div class="form-group">
+                          <input type="text" 
+                          id="description" 
+                          formControlName="description" class="form-control" 
+                          placeholder="Aciklama"/>
+                      </div>
+                  </div>
+              </form>
+          </div>
+          <div class="card-footer d-grid">
+              <button class="btn btn-fill btn-primary" (click)="add()" >Ekle</button>
+          </div>
+      </div>
+  </div>
+</div>

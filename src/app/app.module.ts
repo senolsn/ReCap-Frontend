@@ -16,7 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPalette, faLiraSign, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +24,10 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { CarImageAddComponent } from './components/car-image-add/car-image-add.component';
 
 
 library.add(faPalette, faLiraSign, faCalendarAlt);
@@ -44,6 +48,10 @@ library.add(faPalette, faLiraSign, faCalendarAlt);
     CartDetailComponent,
     PaymentComponent,
     CreditCardComponent,
+    BrandAddComponent,
+    CarAddComponent,
+    ColorAddComponent,
+    CarImageAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +59,7 @@ library.add(faPalette, faLiraSign, faCalendarAlt);
     HttpClientModule,
     FontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"

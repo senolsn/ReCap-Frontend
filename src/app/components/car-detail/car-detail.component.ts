@@ -74,6 +74,7 @@ export class CarDetailComponent implements OnInit {
       cartItem.day = this.getHiredDay();
       
       this.cartService.addToCart(cartItem);
+      //BURAYA KONTROL YAZILMALI EĞER SEPETTE MEVCUTSA AŞAĞIDAKİ TOASTI GÖSTERME
       this.toastrService.success('Araç Sepetinize Eklendi!');
     } else {
       this.toastrService.error(

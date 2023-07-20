@@ -24,7 +24,7 @@
           style="font-size: 24px"
         ></i>
         <p class="m-0" style="font-size: 18px; text-align: center">
-          <strong>Günlük Fiyat:</strong> {{ car?.dailyPrice  | currency}}
+          <strong>Günlük Fiyat:</strong> {{ car?.dailyPrice  | currency:"TRY"}}
         </p>
       </div>
       <div class="d-flex align-items-center mb-4 justify-content-center">
@@ -63,13 +63,13 @@
           <div class="card-body text-center">
             <h5 class="card-subtitle">Kiralanan Gün : {{hiredDay}} </h5>
             <h6 class="card-subtitle mt-2 mb-2 text-body-secondary">
-              Fiyat : {{totalPrice | currency}} 
+              Fiyat : {{totalPrice | currency:"TRY"}} 
             </h6>
             <h6 class="card-subtitle mt-2 mb-2 text-body-secondary">
-              KDV Bedeli : {{totalPrice |vatAdded:20 |currency}} 
+              KDV Bedeli : {{totalPrice |vatAdded:20 |currency:"TRY"}} 
             </h6>
             <h6 class="card-subtitle mt-2 mb-2 text-body-secondary">
-              Toplam Fiyat : {{totalPrice + (totalPrice | vatAdded: 20) | currency}}
+              Toplam Fiyat : {{totalPrice + (totalPrice | vatAdded: 20) | currency:"TRY"}}
             </h6>
             <a routerLink="/cars" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Diğer Araçlarımız</a>
           </div>

@@ -34,7 +34,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cartItem of cartItems" class="">
+          <tr *ngFor="let cartItem of cartItems" class="align-middle">
             <td>
               <img
                 [src]="getCarImageUrl(cartItem.car.imagePath)"
@@ -49,22 +49,22 @@
               />
             </td>
             <td class="text-center">{{ cartItem.car.brandName }} {{ cartItem.car.description }}</td>
-            <td class="text-center">{{ cartItem.car.dailyPrice | currency }}</td>
+            <td class="text-center">{{ cartItem.car.dailyPrice | currency:"TRY" }}</td>
             <td class="text-center">{{ cartItem.day }}</td>
           </tr>
         </tbody>
       </table>
-      <div class="d-flex justify-content-end">
+      <div *ngIf="cartItems.length > 0" class="d-flex justify-content-end">
         <div class="card mt-3" style="width: 18rem">
           <div class="card-body text-center">
-            <h6 class="card-subtitle mt-2 mb-2 text-body-secondary">Fiyat : {{getTotalPrice() | currency}}</h6>
+            <h6 class="card-subtitle mt-2 mb-2 text-body-secondary">Fiyat : {{getTotalPrice() | currency:"TRY"}}</h6>
             <h6 class="card-subtitle mt-2 mb-2 text-body-secondary">
-              KDV Bedeli : {{getTotalPrice() |vatAdded:20 |currency}}
+              KDV Bedeli : {{getTotalPrice() |vatAdded:20 | currency:"TRY"}}
             </h6>
             <h6 class="card-subtitle mt-2 mb-2 text-body-secondary">
-              Toplam Fiyat : {{getTotalPrice() + (getTotalPrice() | vatAdded: 20) | currency}}
+              Toplam Fiyat : {{getTotalPrice() + (getTotalPrice() | vatAdded: 20) | currency:"TRY"}}
             </h6>
-            <button class="btn btn-primary btn-md rounded text-center" routerLink="/payment" (click)="pay()">
+            <button class="btn btn-primary btn-md rounded text-center mt-3" routerLink="/payment" (click)="pay()">
               <i class="bi bi-credit-card-fill"></i> Ödeme Yap
             </button>
           </div>
