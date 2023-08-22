@@ -1,0 +1,35 @@
+<div class="mt-5 border rounded-1">
+    <table class="table">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">Id</th>
+          <th scope="col">Marka</th>
+          <th scope="col" style="width: 15px;" ></th>
+          <th scope="col" style="width: 20px;">
+          <button class="btn btn-success btn-sm" [routerLink]="['/brand/add']" style="position: relative; right:15px;"><i class="bi bi-plus-lg"></i></button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let brand of brands" class="text-center">
+          <th scope="row">{{brand.brandId}}</th>
+          <td>{{brand.brandName}}</td>
+          <td>
+            <button class="btn btn-warning listBtn text-center" [routerLink]="['/brand/update', brand.brandId]">
+              <i
+                class="bi bi-pencil-square"
+                style="width: 15px; vertical-align: middle"
+              ></i>
+            </button>
+          </td>
+          <td>
+              <button class="btn btn-danger listBtn text-center">
+                  <i class="bi bi-x-lg"></i>
+              </button>
+            </td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,8 @@
+.listBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    color: white;
+  }

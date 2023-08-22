@@ -2,11 +2,11 @@
     <div class="col-md-12 mt-5">
       <div class="card">
         <div class="card-header text-center">
-          <h5 class="title" style="font-weight: 400;">Araba ekle</h5>
+          <h5 class="title" style="font-weight: 400;">Resim ekle</h5>
         </div>
         <div class="card-body">
           <div class="mb-3">
-            <label for="carId">Arabalar</label>
+            <label for="carId" class="mb-1">Resim Yükelenecek Arabayı Seçiniz.</label>
             <select class="form-select mb-3" id="carId" [(ngModel)]="carId" name="carId" required>
               <option selected disabled>Araç Seçiniz</option>
               <option *ngFor="let car of cars" [value]="car.carId">{{ car.brandName }} {{ car.description }}</option>

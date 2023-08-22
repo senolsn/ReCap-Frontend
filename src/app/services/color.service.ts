@@ -21,4 +21,9 @@ export class ColorService {
     return this.httpClient.post<ListResponseModel<Color>>(newPath,color);
 
   }
+
+  update(color:Color):Observable<ListResponseModel<Color>>{
+    let newPath = this.apiUrl + "colors/update";
+    return this.httpClient.put<ListResponseModel<Color>>(newPath,color);
+  }
 }

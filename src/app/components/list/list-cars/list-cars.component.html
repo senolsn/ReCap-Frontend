@@ -1,0 +1,48 @@
+<div class="mt-5 border rounded-1">
+  <table class="table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Arabalar</th>
+        <th scope="col">Marka</th>
+        <th scope="col">Model</th>
+        <th scope="col">Renk</th>
+        <th scope="col">Günlük Fiyat</th>
+        <th scope="col">Yıl</th>
+        <th scope="col" style="width: 30px;"></th>
+        <th scope="col" style="width: 30px;"></th>
+        <th scope="col" style="width: 50px;">
+          <button class="btn btn-success btn-sm" [routerLink]="['/car/add']" style="position: relative; right:15px;" ><i class="bi bi-plus-lg"></i></button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars" class="text-center">
+        <th scope="row">{{car.carId}}</th>
+        <td>{{car?.brandName}}</td>
+        <td>{{car?.description}}</td>
+        <td>{{car?.colorName}}</td>
+        <td>{{car?.dailyPrice}}</td>
+        <td>{{car?.modelYear}}</td>
+        <td>
+          <button class="btn btn-warning listBtn text-center" [routerLink]="['/car/update', car.carId]">
+            <i
+              class="bi bi-pencil-square"
+              style="width: 15px; vertical-align: middle"
+            ></i>
+          </button>
+        </td>
+        <td>
+            <button class="btn btn-dark listBtn text-center" [routerLink]="['/carImage/add', car.carId]">
+              <i class="bi bi-image-fill"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-danger listBtn text-center">
+                <i class="bi bi-x-lg"></i>
+            </button>
+          </td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -7,7 +7,7 @@ import { NaviComponent } from './components/navi/navi.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { HttpClientModule  } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule  } from '@angular/common/http';
 import { CarImageComponent } from './components/car-image/car-image.component';
 import { CarComponent } from './components/car/car.component';
 import { RentalComponent } from './components/rental/rental.component';
@@ -24,10 +24,18 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
-import { BrandAddComponent } from './components/brand-add/brand-add.component';
-import { CarAddComponent } from './components/car-add/car-add.component';
-import { ColorAddComponent } from './components/color-add/color-add.component';
-import { CarImageAddComponent } from './components/car-image-add/car-image-add.component';
+import { BrandAddComponent } from './components/add/brand-add/brand-add.component';
+import { CarAddComponent } from './components/add/car-add/car-add.component';
+import { ColorAddComponent } from './components/add/color-add/color-add.component';
+import { CarImageAddComponent } from './components/add/car-image-add/car-image-add.component';
+import { ListCarsComponent } from './components/list/list-cars/list-cars.component';
+import { ListBrandComponent } from './components/list/list-brand/list-brand.component';
+import { ListColorComponent } from './components/list/list-color/list-color.component';
+import { BrandUpdateComponent } from './components/update/brand-update/brand-update.component';
+import { ColorUpdateComponent } from './components/update/color-update/color-update.component';
+import { CarUpdateComponent } from './components/update/car-update/car-update.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 library.add(faPalette, faLiraSign, faCalendarAlt);
@@ -52,6 +60,13 @@ library.add(faPalette, faLiraSign, faCalendarAlt);
     CarAddComponent,
     ColorAddComponent,
     CarImageAddComponent,
+    ListCarsComponent,
+    ListBrandComponent,
+    ListColorComponent,
+    BrandUpdateComponent,
+    ColorUpdateComponent,
+    CarUpdateComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +80,9 @@ library.add(faPalette, faLiraSign, faCalendarAlt);
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,29 @@
+<div class="content">
+    <div class="col-md-12 mt-5">
+      <div class="card">
+        <div class="card-header text-center">
+          <h5 class="title" style="font-weight: 400">Renk güncelle</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="colorUpdateForm" > 
+            <div class="mb-3">
+              <label for="colorName">Marka Güncelle</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="colorName"
+                  formControlName="colorName"
+                  class="form-control"
+                  placeholder="Güncellenecek marka adı giriniz !"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer d-grid">
+          <button class="btn btn-fill btn-primary" (click)="update()">Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
