@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 import { ToastrService } from 'ngx-toastr';
-import { CarImageService } from 'src/app/services/car-image.service'; // Import the CarImageService
+import { CarImageService } from 'src/app/services/car-image.service';
+import { FormGroup,FormBuilder,Validators, Form } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-car-image-add',
@@ -13,15 +15,28 @@ export class CarImageAddComponent implements OnInit {
   carId: number;
   cars: Car[] = [];
   selectedFile: File;
+  carImageAddForm:FormGroup;
 
   constructor(
     private carService: CarService,
     private toastrService: ToastrService,
-    private carImageService: CarImageService
+    private carImageService: CarImageService,
+    private formBuilder:FormBuilder,
+    private activatedRoute:ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.getCars();
+    this.activatedRoute.params.subscribe((params: any) => {
+      this.carId = params["carId"];
+    })
+    this.getCarsById(this.carId);
+    this.createCarImageForm();
+  }
+
+  createCarImageForm(){
+    this.carImageAddForm = this.formBuilder.group({
+      carId:[this.carId,Validators.required]
+    })
   }
 
   onFileSelected(event: Event): void {
@@ -32,27 +47,30 @@ export class CarImageAddComponent implements OnInit {
   }
 
   onUpload(): void {
-    if (!this.carId || !this.selectedFile) {
-      this.toastrService.error("Resim Bulunamadı","Hata");
-      return;
-    }
-
-    this.carImageService.addCarImage(this.carId, this.selectedFile).subscribe(
-      (response) => {
-        if (response.success) {
-          this.toastrService.success("Resim Yüklendi!", "Başarılı");
-        } else {
+    console.log("Car Id : "+ this.carId );
+    if(this.carImageAddForm.valid){
+      if (!this.carId || !this.selectedFile) {
+        this.toastrService.error("Resim Bulunamadı","Hata");
+        return;
+      }
+  
+      this.carImageService.addCarImage(this.carId, this.selectedFile).subscribe(
+        (response) => {
+          if (response.success) {
+            this.toastrService.success("Resim Yüklendi!", "Başarılı");
+          } else {
+            this.toastrService.error("Resim Yüklenmedi!", "Hata");
+          }
+        },
+        (error) => {
           this.toastrService.error("Resim Yüklenmedi!", "Hata");
         }
-      },
-      (error) => {
-        this.toastrService.error("Resim Yüklenmedi!", "Hata");
-      }
-    );
+      );
+    }
   }
 
-  getCars() {
-    this.carService.getCars().subscribe((response) => {
+  getCarsById(carId:number) {
+    this.carService.getCarById(carId).subscribe((response) => {
       this.cars = response.data;
     });
   }

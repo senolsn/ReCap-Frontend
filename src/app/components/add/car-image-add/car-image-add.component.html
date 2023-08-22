@@ -5,21 +5,14 @@
           <h5 class="title" style="font-weight: 400;">Resim ekle</h5>
         </div>
         <div class="card-body">
-          <div class="mb-3">
-            <label for="carId" class="mb-1">Resim Yükelenecek Arabayı Seçiniz.</label>
-            <select class="form-select mb-3" id="carId" [(ngModel)]="carId" name="carId" required>
-              <option selected disabled>Araç Seçiniz</option>
-              <option *ngFor="let car of cars" [value]="car.carId">{{ car.brandName }} {{ car.description }}</option>
-            </select>
-          </div>
-  
+          <form [formGroup]="carImageAddForm">
           <div class="mb-3">
             <label for="file">Dosya Seçiniz</label>
             <div class="form-group">
               <input type="file" class="form-control" (change)="onFileSelected($event)" accept="image/*">
             </div>
           </div>
-  
+        </form>
         </div>
         <div class="card-footer d-grid">
           <button class="btn btn-fill btn-primary" (click)="onUpload()">Ekle</button>
