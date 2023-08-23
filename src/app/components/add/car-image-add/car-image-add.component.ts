@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './car-image-add.component.html',
   styleUrls: ['./car-image-add.component.css']
 })
-export class CarImageAddComponent implements OnInit {
+export class CarImageAddComponent implements OnInit,AfterViewInit {
   carId: number;
   cars: Car[] = [];
   selectedFile: File;
@@ -24,6 +24,9 @@ export class CarImageAddComponent implements OnInit {
     private formBuilder:FormBuilder,
     private activatedRoute:ActivatedRoute
   ) {}
+  ngAfterViewInit(): void {
+    window.scrollTo(0, 0);
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: any) => {

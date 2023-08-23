@@ -8,7 +8,6 @@ import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { HTTP_INTERCEPTORS, HttpClientModule  } from '@angular/common/http';
-import { CarImageComponent } from './components/car-image/car-image.component';
 import { CarComponent } from './components/car/car.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
@@ -46,7 +45,6 @@ library.add(faPalette, faLiraSign, faCalendarAlt);
     BrandComponent,
     ColorComponent,
     CustomerComponent,
-    CarImageComponent,
     CarComponent,
     RentalComponent,
     CarDetailComponent,

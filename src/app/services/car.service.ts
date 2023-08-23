@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Car } from '../models/car';
+import { SingleResponseModel } from '../models/singleResponseModel';
+import { ResponseModel } from '../models/ResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -50,10 +52,15 @@ export class CarService {
     return this.httpClient.put<ListResponseModel<Car>>(newPath,car);
   }
 
+  delete(car:Car):Observable<ResponseModel>{
+    let newPath = this.apiUrl +"Cars/delete";
+    return this.httpClient.post<ResponseModel>(newPath,car);
+  }
+  
+
   getCarById(carId:number):Observable<ListResponseModel<Car>>{
     let newPath = this.apiUrl + "cars/getbyid?id="+carId;
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
-    
   }
   
 
