@@ -9,9 +9,8 @@
         <th scope="col">Günlük Fiyat</th>
         <th scope="col">Yıl</th>
         <th scope="col" style="width: 30px;"></th>
-        <th scope="col" style="width: 30px;"></th>
         <th scope="col" style="width: 50px;">
-          <button class="btn btn-success btn-sm" [routerLink]="['/car/add']" style="position: relative; right:15px;" ><i class="bi bi-plus-lg"></i></button>
+          <button class="btn btn-success listBtn" [routerLink]="['/car/add']" style="position: relative; right:15px;" ><i class="bi bi-plus-lg"></i></button>
         </th>
       </tr>
     </thead>
@@ -36,11 +35,7 @@
               <i class="bi bi-image-fill"></i>
             </button>
           </td>
-          <td>
-            <button class="btn btn-danger listBtn text-center" (click)="deleteCar(car)">
-                <i class="bi bi-x-lg"></i>
-            </button>
-          </td>
+          
         
       </tr>
     </tbody>

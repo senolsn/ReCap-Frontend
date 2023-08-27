@@ -11,8 +11,8 @@ export class CarImageService {
   apiUrl = "https://localhost:44317/api/"
   constructor(private httpClient:HttpClient) { }
 
-  getImagesByCarId():Observable<ListResponseModel<CarImage>>{
-    let newPath = this.apiUrl + ""
+  getImagesByCarId(carId:number):Observable<ListResponseModel<CarImage>>{
+    let newPath = this.apiUrl + "CarImages/getbycarid?carId="+carId;
     return this.httpClient.get<ListResponseModel<CarImage>>(newPath);
   }
 
@@ -23,5 +23,11 @@ export class CarImageService {
     
     let newPath = this.apiUrl + "carImages/add";
     return this.httpClient.post<any>(newPath, formData);
+  }
+
+  deleteCarImage(carImage: CarImage,) {
+    let newPath = this.apiUrl + "CarImages/Delete";
+    return this.httpClient.post(newPath,carImage)
+
   }
 }

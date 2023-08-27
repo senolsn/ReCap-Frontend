@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { Rental } from 'src/app/models/rental';
@@ -13,7 +13,7 @@ import { CartItem } from 'src/app/models/cartItem';
   templateUrl: './car-detail.component.html',
   styleUrls: ['./car-detail.component.css'],
 })
-export class CarDetailComponent implements OnInit {
+export class CarDetailComponent implements OnInit,AfterViewInit {
   carId: number;
   car: any;
   baseUrl: string = 'https://localhost:44317/Uploads/Images/';
@@ -29,6 +29,9 @@ export class CarDetailComponent implements OnInit {
     private toastrService: ToastrService,
     private cartService: CartService
   ) {}
+  ngAfterViewInit(): void {
+    window.scrollTo(0, 0);
+  }
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       this.carId = params['id'];

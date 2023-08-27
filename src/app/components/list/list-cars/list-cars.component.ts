@@ -13,8 +13,6 @@ export class ListCarsComponent implements OnInit {
   cars:Car[];
   constructor(
     private carService:CarService,
-    private sweetAlertService: SweetAlertService,
-    private toastrService:ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -27,19 +25,6 @@ export class ListCarsComponent implements OnInit {
     });
   }
 
-  async deleteCar(car:Car) {
-    const confirmed = await this.sweetAlertService.confirmDelete();
-
-    if (confirmed) {
-     this.carService.delete(car).subscribe(response => {
-      this.toastrService.success("Deleted !");
-      console.log(car);
-
-     },responseError => {
-      this.toastrService.error("Error !");
-      console.log(car);
-     })
-    }
-  }
+  
 
 }

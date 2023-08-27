@@ -9,8 +9,8 @@ export class SweetAlertService {
 
   async confirmDelete(): Promise<boolean> {
     const result = await Swal.fire({
-      title: 'Aracı Sil',
-      text: 'Bu aracı silmek istediğinize emin misiniz?',
+      title: 'Sil',
+      text: 'Silmek istediğinize emin misiniz?',
       icon: 'warning',
       showCancelButton: true,
       showConfirmButton: true,

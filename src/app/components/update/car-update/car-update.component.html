@@ -13,7 +13,7 @@
                         </option>
                     </select>
                     </div>
-                   
+
                     <div class="mb-3">
                         <label for="colorId">Color</label>
                     <select class="form-select mb-3" id="colorId" formControlName="colorId">
@@ -53,8 +53,10 @@
                 </form>
             </div>
             <div class="card-footer d-grid">
-                <button class="btn btn-fill btn-primary" (click)="update()">Güncelle</button>
-            </div>
+                <button class="btn btn-fill btn-success" (click)="update()">Güncelle</button>
+                <button class="btn btn-fill btn-danger mt-2" (click)="deleteCar()">Aracı Sil</button>
+                <button class="btn btn-fill text-white btn-warning mt-2" [routerLink]="['/carImage/add',carId]">Resim İşlemleri</button>
+            </div> 
         </div>
     </div>
   </div>
