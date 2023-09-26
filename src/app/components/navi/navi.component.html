@@ -8,7 +8,7 @@
     <!-- Collapse -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <!-- Navigation -->
-      <ul class="navbar-nav ms-auto d-flex">
+      <ul class="navbar-nav ms-auto d-flex" *ngIf="isAuth()" style="position: relative; right: 250px; ">
         <li class="nav-item dropdown me-4">
           <a class="nav-link text-center d-block border-0" id="navbarLandings" routerLink="/list/cars" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
             <span class="text-decoration-underline">Cars</span>
@@ -25,10 +25,31 @@
           </a>
         </li>
       </ul>
-      <a class="navbar-btn btn btn-sm btn-primary lift ms-auto" routerLink="/login"  href="">
+
+      <a class="navbar-btn btn btn-sm btn-primary lift ms-auto" routerLink="/login" *ngIf="!isAuth()">
         <i class="bi bi-person-fill"></i> Giriş Yap
       </a>
-      <app-cart-summary class="m-4 border rounded" style="list-style-type: none; padding: 5px;"></app-cart-summary>
+      <app-cart-summary class="m-1 border rounded" style="list-style-type: none; padding: 5px;"></app-cart-summary>
+
+
+      <!---->
+      <div  *ngIf="isAuth()">
+        <li class="nav-item dropdown" style="list-style-type: none; cursor: pointer; ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      
+            <i class="bi bi-gear"></i> Ayarlar
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  
+                </span>
+             
+          </a>
+          <ul class="dropdown-menu cart-dropdown text-center">
+              <li routerLink="/settings"> Profil Ayarları</li>
+              <li (click)="logOut()" routerLink="/login">Çıkış Yap</li>
+          </ul>
+        </li>
+      </div>
+      <!---->
     </div>
   </div>
 </nav>

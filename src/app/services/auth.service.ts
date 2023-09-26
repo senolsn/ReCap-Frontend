@@ -5,6 +5,7 @@ import { LoginModel } from '../models/loginModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,6 +29,6 @@ export class AuthService {
     }else{
       return false;
     }
-
   }
+  
 }

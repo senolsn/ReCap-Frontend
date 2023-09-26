@@ -35,6 +35,7 @@ import { ColorUpdateComponent } from './components/update/color-update/color-upd
 import { CarUpdateComponent } from './components/update/car-update/car-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { SettingsComponent } from './components/settings/settings.component';
 
 
 library.add(faPalette, faLiraSign, faCalendarAlt);
@@ -65,6 +66,7 @@ library.add(faPalette, faLiraSign, faCalendarAlt);
     ColorUpdateComponent,
     CarUpdateComponent,
     LoginComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,7 @@ import { ColorUpdateComponent } from './components/update/color-update/color-upd
 import { CarUpdateComponent } from './components/update/car-update/car-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './guards/login.guard';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   { path: '', component: CarComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'color/update/:colorId', component: ColorUpdateComponent,canActivate: [LoginGuard] },
   { path: 'car/update/:id', component: CarUpdateComponent,canActivate: [LoginGuard] },
   { path: 'login', component: LoginComponent },
+  { path:"settings",component:SettingsComponent, canActivate: [LoginGuard]}
 ];
 
 @NgModule({

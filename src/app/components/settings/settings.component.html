@@ -1,0 +1,27 @@
+<main class="form-signin w-100 m-auto">
+    
+      <h1 class="h3 mb-3 fw-normal text-center mt-3">Profili Güncelle</h1>
+  
+     <form [formGroup]="settingsForm">
+      <div class="form-floating my-4">
+        <input type="text" class="form-control" id="firstName" placeholder="name@example.com" formControlName="firstName">
+        <label for="firstName">First Name</label>
+      </div>
+      <div class="form-floating my-4">
+        <input type="text" class="form-control" id="LastName" placeholder="LastName" formControlName="lastName">
+        <label for="LastName">Last Name</label>
+      </div>
+
+      <div class="form-floating my-4">
+        <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+        <label for="password">Password</label>
+        <div class="alert alert-warning" style="height: 55px;" role="alert">
+          <p class="text-center">Parola değiştirme işlemi yapmayacaksanız mevcut parolanızı giriniz! (Boş bırakmayınız)</p>
+        </div>
+      </div>
+     </form>
+    <div>
+        <button class="btn btn-success w-100 py-2" type="submit" (click)="update()" >Güncelle</button>
+    </div>
+   
+  </main>
