@@ -1,0 +1,31 @@
+<main class="form-signin w-100 m-auto">
+    
+    <h1 class="h3 mb-3 fw-normal text-center mt-3">Kayıt Oluştur</h1>
+
+   <form [formGroup]="registerForm">
+    <div class="form-floating my-4">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
+        <label for="email">E-mail Address</label>
+      </div>
+    <div class="form-floating my-4">
+      <input type="text" class="form-control" id="firstName" placeholder="name@example.com" formControlName="firstName">
+      <label for="firstName">First Name</label>
+    </div>
+    <div class="form-floating my-4">
+      <input type="text" class="form-control" id="LastName" placeholder="LastName" formControlName="lastName">
+      <label for="LastName">Last Name</label>
+    </div>
+
+    <div class="form-floating my-4">
+      <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+      <label for="password">Password</label>
+    </div>
+    <div class="form-floating my-4">
+        <input type="password" class="form-control" id="confirmPassword" placeholder="" formControlName="confirmPassword">
+        <label for="confirmPassword">Confirm Password</label>
+      </div>
+   </form>
+  <div>
+      <button class="btn btn-success w-100 py-2" type="submit" (click)="register()">Kayıt Ol</button>
+  </div>
+</main>

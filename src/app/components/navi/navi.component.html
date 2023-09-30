@@ -1,22 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom" style="padding-top: 0.5rem; padding-bottom: 0.5rem; height: 70px;">
   <div class="container">
-    <!-- Brand -->
-    <a class="navbar-brand ml-5" style="margin-top: 5px;" routerLink="/">
-      <h5 style="font-weight: 400;">WEHONY</h5>
-    </a>
+    <div class="d-flex align-items-center justify-content-center">
+      <!-- Brand -->
+      <a class="navbar-brand ml-5" style="margin-top: 5px;" routerLink="/">
+        <h5 style="font-weight: 400;">WEHONY</h5>
+      </a>
+    </div>
 
-    <!-- Collapse -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <!-- Navigation -->
-      <ul class="navbar-nav ms-auto d-flex" *ngIf="isAuth()" style="position: relative; right: 250px; ">
+      <ul class="navbar-nav mx-auto"> <!-- Değişiklik: ms-auto yerine mx-auto -->
         <li class="nav-item dropdown me-4">
-          <a class="nav-link text-center d-block border-0" id="navbarLandings" routerLink="/list/cars" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link text-center d-block border-0" id="navbarLandings" routerLink="/cars" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
             <span class="text-decoration-underline">Cars</span>
-          </a>
-        </li>
-        <li class="nav-item dropdown me-4">
-          <a class="nav-link text-center d-block border-0" id="navbarLandings" routerLink="/list/colors" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
-            <span class="text-decoration-underline">Colors</span>
           </a>
         </li>
         <li class="nav-item dropdown me-4">
@@ -24,32 +20,42 @@
             <span class="text-decoration-underline">Brands</span>
           </a>
         </li>
+        <li class="nav-item dropdown me-4">
+          <a class="nav-link text-center d-block border-0" id="navbarLandings" routerLink="/cars" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+            <span class="text-decoration-underline">About Us</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown me-4">
+          <a class="nav-link text-center d-block border-0" id="navbarLandings" routerLink="/list/colors" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+            <span class="text-decoration-underline">Our Team</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown me-4">
+          <a class="nav-link text-center d-block border-0" id="navbarLandings" routerLink="/list/colors" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+            <span class="text-decoration-underline">Partners</span>
+          </a>
+        </li>
       </ul>
 
-      <a class="navbar-btn btn btn-sm btn-primary lift ms-auto" routerLink="/login" *ngIf="!isAuth()">
+      <a class="navbar-btn btn btn-sm btn-primary lift" routerLink="/login" *ngIf="!isAuth()">
         <i class="bi bi-person-fill"></i> Giriş Yap
       </a>
+    </div>
+
+    <div class="d-flex align-items-center">
       <app-cart-summary class="m-1 border rounded" style="list-style-type: none; padding: 5px;"></app-cart-summary>
-
-
-      <!---->
-      <div  *ngIf="isAuth()">
-        <li class="nav-item dropdown" style="list-style-type: none; cursor: pointer; ">
+      <div *ngIf="isAuth()" class="ms-3">
+        <li class="nav-item dropdown" style="list-style-type: none; cursor: pointer;">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      
             <i class="bi bi-gear"></i> Ayarlar
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  
-                </span>
-             
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
           </a>
           <ul class="dropdown-menu cart-dropdown text-center">
-              <li routerLink="/settings"> Profil Ayarları</li>
-              <li (click)="logOut()" routerLink="/login">Çıkış Yap</li>
+            <li class="border border-1 m-1 rounded" routerLink="/settings"> Profil Ayarları</li>
+            <li class="border border-1 m-1 rounded" (click)="logOut()" routerLink="/login">Çıkış Yap</li>
           </ul>
         </li>
       </div>
-      <!---->
     </div>
   </div>
 </nav>

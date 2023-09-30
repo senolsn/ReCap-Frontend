@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { LoginModel } from '../models/loginModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
+import { RegisterModel } from '../models/registerModel';
 
 
 @Injectable({
@@ -18,8 +19,9 @@ export class AuthService {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(newPath,loginModel);
   }
 
-  register(){
-
+  register(registerModel:RegisterModel):Observable<TokenModel>{
+    let newPath = this.apiUrl+ "auth/register";
+    return this.httpClient.post<TokenModel>(newPath,registerModel);
   }
 
   isAuthenticated(){
