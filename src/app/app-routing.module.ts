@@ -20,12 +20,14 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './guards/login.guard';
 import { SettingsComponent } from './components/settings/settings.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
-  { path: '', component: CarComponent },
+  { path: '', component: HomeComponent },
   { path: 'cars', component: CarComponent },
   { path: 'colors', component: ColorComponent, canActivate: [LoginGuard] },
-  { path: 'brands', component: BrandComponent, canActivate: [LoginGuard] },
+  { path: 'brands', component: BrandComponent},
   { path: 'cars/brand/:brandId', component: CarComponent },
   { path: 'cars/color/:colorId', component: CarComponent },
   { path: 'cars/:id', component: CarDetailComponent },
@@ -45,6 +47,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: "settings",component:SettingsComponent, canActivate: [LoginGuard]},
   { path: "register", component:RegisterComponent},
+  { path: "about-us", component:AboutComponent}
 ];
 
 @NgModule({

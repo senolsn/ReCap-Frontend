@@ -37,6 +37,9 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { SettingsComponent } from './components/settings/settings.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 library.add(faPalette, faLiraSign, faCalendarAlt);
@@ -69,6 +72,9 @@ library.add(faPalette, faLiraSign, faCalendarAlt);
     LoginComponent,
     SettingsComponent,
     RegisterComponent,
+    HomeComponent,
+    AboutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

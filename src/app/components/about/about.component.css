@@ -1,0 +1,14 @@
+.about-image{
+    width: 1000px;
+    align-items: center;
+  }
+  .about-header{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .about-title{
+    text-align: center;
+    font-weight: 400;
+  }
