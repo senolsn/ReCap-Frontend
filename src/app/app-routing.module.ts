@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'cars/color/:colorId', component: CarComponent },
   { path: 'cars/:id', component: CarDetailComponent },
   { path: 'cart-detail', component: CartDetailComponent },
-  { path: 'payment', component: PaymentComponent },
+  { path: 'payment', component: PaymentComponent,canActivate: [LoginGuard] },
   { path: 'brand/add', component: BrandAddComponent,canActivate: [LoginGuard] },
   { path: 'color/add', component: ColorAddComponent,canActivate: [LoginGuard] },
   { path: 'car/add', component: CarAddComponent,canActivate: [LoginGuard] },
