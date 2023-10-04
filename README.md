@@ -10,7 +10,7 @@ Rent A Car Projesi'nin frontend kısmı, kullanıcıların araçları aramasına
 
 Bu proje aşağıdaki teknolojileri kullanmaktadır:
 - **Dil:** TypeScript (Angular)
-- **UI Kütüphanesi:** Angular
+- **UI Kütüphanesi:** Angular,Bootstrap
 - **State Yönetimi:** Angular State Management
 - **Router:** Angular Router
 - **API İletişimi:** HttpClient
