@@ -9,11 +9,8 @@ Rent A Car Projesi'nin frontend kısmı, kullanıcıların araçları aramasına
 ## Kullanılan Teknolojiler
 
 Bu proje aşağıdaki teknolojileri kullanmaktadır:
-- **Dil:** JavaScript (React)
-- **UI Kütüphanesi:** React
-- **State Yönetimi:** Redux
-- **Router:** React Router
-- **API İletişimi:** Axios
+- **Dil:** JavaScript (Angular)
+- **UI Kütüphanesi:** Bootstrap
 
 ## Nasıl Çalıştırılır
 
@@ -21,8 +18,5 @@ Bu proje aşağıdaki teknolojileri kullanmaktadır:
 2. Komut istemcisini açın ve proje klasörüne gidin.
 3. Gerekli bağımlılıkları yüklemek için `npm install` veya `yarn install` komutunu kullanın.
 4. Projeyi başlatmak için `npm start` veya `yarn start` komutunu kullanın.
-5. Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresine giderek uygulamayı görüntüleyebilirsiniz.
+5. Tarayıcınızda [http://localhost:4200](http://localhost:4200) adresine giderek uygulamayı görüntüleyebilirsiniz.
 
-## Önemli Notlar
-
-- Bu frontend uygulaması, backend API ile iletişim kurar. Backend adresi ve portu için `src/config/api.js` dosyasını düzenlemeniz gerekebilir.
