@@ -1,27 +1,28 @@
-# ReCapProjectFrontend
+# Rent A Car Projesi - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+Bu, Rent A Car Projesi'nin frontend kısmını içeren depodur. Bu projede kullanılan teknolojiler ve projenin kısa açıklaması aşağıda verilmiştir.
 
-## Development server
+## Proje Açıklaması
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Rent A Car Projesi'nin frontend kısmı, kullanıcıların araçları aramasına, kiralama yapmasına ve rezervasyon yapmasına olanak tanır. Ayrıca kullanıcıların hesaplarını yönetmelerine ve rezervasyon geçmişlerini görüntülemelerine olanak tanır.
 
-## Code scaffolding
+## Kullanılan Teknolojiler
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Bu proje aşağıdaki teknolojileri kullanmaktadır:
+- **Dil:** JavaScript (React)
+- **UI Kütüphanesi:** React
+- **State Yönetimi:** Redux
+- **Router:** React Router
+- **API İletişimi:** Axios
 
-## Build
+## Nasıl Çalıştırılır
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Repoyu bilgisayarınıza klonlayın.
+2. Komut istemcisini açın ve proje klasörüne gidin.
+3. Gerekli bağımlılıkları yüklemek için `npm install` veya `yarn install` komutunu kullanın.
+4. Projeyi başlatmak için `npm start` veya `yarn start` komutunu kullanın.
+5. Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresine giderek uygulamayı görüntüleyebilirsiniz.
 
-## Running unit tests
+## Önemli Notlar
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Bu frontend uygulaması, backend API ile iletişim kurar. Backend adresi ve portu için `src/config/api.js` dosyasını düzenlemeniz gerekebilir.
