@@ -62,14 +62,51 @@ export class CarDetailComponent implements OnInit,AfterViewInit {
   }
 
   addToCart(car: Car) {
+    let isActive = false; //İlk rental olan aracın aşağıdaki Lütfen Kiralamak... uyarısını fixlemek için
     const currentDate = new Date();
     const currentFormatedDate = currentDate.toISOString().split('T')[0];
-    const rentalDate = new Date(
-      this.carRentals[this.carRentals.length - 1].returnDate
-    );
-    const rentalFormatedDate = rentalDate.toISOString().split('T')[0];
+    const rentalDate = this.carRentals && this.carRentals.length > 0
+      ? new Date(this.carRentals[this.carRentals.length - 1].returnDate)
+      : null;
+    const rentalFormatedDate = rentalDate ? rentalDate.toISOString().split('T')[0] : null;
 
-    //Not: Burada önce araç daha önce kiralanmış mı onun kontrolünü yapacağım. Eğer kiralanmışsa son kiralanma Tarihini kontrol edeceğim. Eğer kiralanmamışsa undefined dönüyorsa yeni bir Rental oluşturacağım Rental.Add kullanılacak yani
+    if (this.carRentals && this.carRentals.length === 0) {
+      isActive = true;
+  }
+
+    this.rentalService.getRentalsByCarId(car.carId).subscribe(response => {
+          //Not: Burada önce araç daha önce kiralanmış mı onun kontrolünü yapacağım. Eğer kiralanmışsa son kiralanma Tarihini kontrol edeceğim. Eğer kiralanmamışsa undefined dönüyorsa yeni bir Rental oluşturacağım Rental.Add kullanılacak yani
+
+          if(response.data.length === 0){
+            //Yeni rental oluştur.
+            let newRental:Rental = {
+              carId: car.carId,
+              customerId: 1,
+              rentDate: this.selectRentDay,
+              returnDate: this.selectReturnDay
+            };
+
+            this.rentalService.addRental(newRental).subscribe(response => {
+              console.log(response);
+            })
+
+            let cartItem = new CartItem();
+            cartItem.car = car;
+            cartItem.day = this.getHiredDay();
+      
+            this.cartService.addToCart(cartItem);
+            this.toastrService.success('Araç Sepetinize Eklendi!');
+             isActive = true;
+            return;
+          }else{
+          const lastRentedDate = new Date(response.data[response.data.length - 1].returnDate);
+          const formattedLastRentedDate = lastRentedDate.toISOString().split('T')[0];
+          if(formattedLastRentedDate >= currentFormatedDate){
+            this.toastrService.error(`Bu araç ${formattedLastRentedDate} tarihine kadar kiralanmıştır.Lütfen başka bir araç seçiniz!`,"Hata");
+          }
+            return;
+          }
+    })
 
     if (this.selectRentDay?.toString() > currentFormatedDate && this.selectRentDay < this.selectReturnDay && rentalFormatedDate < currentFormatedDate) {
       let cartItem = new CartItem();
@@ -78,11 +115,23 @@ export class CarDetailComponent implements OnInit,AfterViewInit {
       
       this.cartService.addToCart(cartItem);
       //BURAYA KONTROL YAZILMALI EĞER SEPETTE MEVCUTSA AŞAĞIDAKİ TOASTI GÖSTERME
+      let newRental:Rental = {
+        carId: car.carId,
+        customerId: 1,
+        rentDate: this.selectRentDay,
+        returnDate: this.selectReturnDay
+      };
+      this.rentalService.addRental(newRental).subscribe(response => {
       this.toastrService.success('Araç Sepetinize Eklendi!');
+      })
     } else {
-      this.toastrService.error(
-        'Lütfen kiralamak istediğiniz tarih aralıklarını kontrol ediniz !'
-      );
+      if(!isActive){
+        this.toastrService.error(
+          'Lütfen kiralamak istediğiniz tarih aralıklarını kontrol ediniz !'
+        );
+      }else{
+        return;
+      }
     }
   }
 
